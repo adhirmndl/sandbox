@@ -16,7 +16,7 @@ def turtleTest():
 		myTurtle.forward(10 * i)
 	myWindow.exitonclick()
 
-def tree(branchLen,t):
+def otree(branchLen,t):
     if branchLen > 5:
         t.forward(branchLen)
         t.right(20)
@@ -25,6 +25,20 @@ def tree(branchLen,t):
         tree(branchLen-15,t)
         t.right(20)
         t.backward(branchLen)
+import random
+def tree(length, t):
+    col = ["red", "orange", "blue", "yellow", "white", "gray", "green", "magenta", "pink"]
+    if length > 5:
+        t.color(col[random.randrange(0, len(col))])
+        t.right(20)
+        t.forward(length)
+        tree(length - 5, t) 
+        t.backward(length)
+        t.left(40)
+        t.forward(length)
+        tree(length - 5, t)
+        t.backward(length)
+        t.right(20)
 
 def main():
     t = turtle.Turtle()
@@ -34,7 +48,7 @@ def main():
     t.backward(100)
     t.down()
     t.color("green")
-    tree(75,t)
+    tree(50,t)
     myWin.exitonclick()
 
 main()
