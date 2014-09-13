@@ -3,6 +3,8 @@
 
 def moveDisk(fromPole, toPole, n):
 	print 'moving disk', n, 'from', fromPole, 'to', toPole
+	toPole.insert(0, fromPole.pop(0))
+	print 'FROM', fromPole, 'TO', toPole
 
 def moveTower(fromPole, toPole, withPole, n):
 	if n >= 1:
@@ -12,4 +14,4 @@ def moveTower(fromPole, toPole, withPole, n):
 
 if __name__ == "__main__":
 	n = input("disks = ")
-	moveTower('A', 'C', 'B', n)
+	moveTower(range(n), [], [], n)
