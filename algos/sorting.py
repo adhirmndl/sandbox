@@ -9,5 +9,21 @@ def bubble(array):
 				array[j] = temp
 		print array
 	print array
-for _ in range(input()):
-	print bubble([int(i) for i in raw_input().strip().split()])
+
+def bubbleTest():
+	for _ in range(input()):
+		print bubble([int(i) for i in raw_input().strip().split()])
+
+def binSearch(start, end, arr, item):
+	mid = (start + end)//2
+	if start >= end:
+		return False
+	if arr[mid] == item:
+		return True
+	if item > arr[mid]:
+		return binSearch(mid+1, end, arr, item)
+	else:
+		return binSearch(start, mid-1, arr, item)
+
+if __name__== "__main__":
+	print binSearch(0, 9, range(9), 10)
