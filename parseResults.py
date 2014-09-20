@@ -10,7 +10,7 @@ def main(fname):
 		header = stats.next()
 		stats.next()
 		data = stats.next()
-		# print data 
+		# print data in proper format
 		nList = isplit(data, ('Link Up',))
 		i = 1
 		for l in nList[1:-1]:
