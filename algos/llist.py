@@ -44,7 +44,17 @@ class UnList:
 				return True
 			cur = cur.getNext()
 		return False
+	def __str__(self):
+		cur = self.head
+		temp = []
+		while cur:
+			temp.append(cur.data)
+			cur = cur.next
+		return str(temp)
 
+def mergeLists(lone, ltwo):
+	return
+	
 if __name__ == "__main__":
 	testList = UnList()
 	testList.add(32)
@@ -56,3 +66,23 @@ if __name__ == "__main__":
 	print testList.remove("fad")
 	print testList.search("fad")
 	print testList.size()
+
+	listOne = UnList()
+	for i in range(5):
+		listOne.add(i)
+
+	for i in range(10,15):
+		listOne.add(i)
+
+	print listOne
+
+	listTwo = UnList()
+	for i in range(5,10):
+		listTwo.add(i)
+
+	for i in range(15,20):
+		listTwo.add(i)
+
+	print listTwo
+
+	mergeLists(listOne, listTwo)

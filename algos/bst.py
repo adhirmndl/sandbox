@@ -28,9 +28,10 @@ class BST:
 			else:
 				insPoint.right = newNode
 				# print 'adding to right', newNode.data
+			#adding parent pointer
 			newNode.p = insPoint
 	def __str__(self):
-		return self.inOrder(self.root)
+		return str(self.inOrderList(self.root))
 
 	def inOrder(self, nodePtr):
 		if not nodePtr:
@@ -40,6 +41,15 @@ class BST:
 		tree += str(nodePtr.data)
 		tree += self.inOrder(nodePtr.right) + ' ]'
 		return tree
+
+	def inOrderList(self, nodePtr):
+		if not nodePtr:
+			return []
+		tempList = []
+		tempList.extend(self.inOrderList(nodePtr.left))
+		tempList.append(nodePtr.data)	
+		tempList.extend(self.inOrderList(nodePtr.right))
+		return tempList
 
 	def search(self, x, data):
 		if not x:
@@ -74,6 +84,10 @@ class BST:
 			y = y.p
 		return y
 
+	def isBST(self, x):
+		if not x:
+			return True
+
 if __name__ == "__main__":
 	bTree = BST()
 	# construct tree
@@ -90,14 +104,19 @@ if __name__ == "__main__":
 	print bTree
 
 	# search	
+	print "search"
 	print bTree.search(bTree.root, 90)
 	print bTree.search(bTree.root, 34)
 
 	# minimum
+	print "min"
 	print bTree.tmin(bTree.root)
 
 	#maximum
+	print "max"
 	print bTree.tmax(bTree.root)
 	
 	#successor
+	print "successor"
 	print bTree.successor(bTree.search(bTree.root, 30))
+
