@@ -58,20 +58,33 @@
 
 // HTTP COLLECT
 // ============
-var http = require('http')
-var bl = require('bl')
-// var mybl = bl(function(err, data){
-// 	console.log(data)
+// var http = require('http')
+// var masterData = ""
+// var req = http.get(process.argv[2], function(response){
+// 	response.setEncoding('utf8')
+// 	response.on('data', function(data){
+// 		masterData = masterData + data
+// 	})
+// 	response.on('end', function(data){
+// 		console.log(masterData.length)
+// 		console.log(masterData)
+// 	})
 // })
-var masterData = ""
-var req = http.get(process.argv[2], function(response){
-	response.setEncoding('utf8')
-	response.on('data', function(data){
-		masterData.append(data.toString())
-	})
-	response.on('end', function(data){
-		console.log(masterData)
-	})
-})
 
-// HTTP 
+// HTTP COLLECT (OFFICIAL)
+// =======================
+// var http = require('http')
+// var bl = require('bl')
+
+// http.get(process.argv[2], function (response) {
+//   response.pipe(bl(function (err, data) {
+//     if (err)
+//       return console.error(err)
+//     data = data.toString()
+//     console.log(data.length)
+//     console.log(data)
+//   }))  
+// })
+
+
+// JUGGLING ASYNC 
