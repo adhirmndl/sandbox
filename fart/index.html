@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>fart • flickrArt</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <section id="fartapp">
+      <header id="header">
+        <h1>flickrArt</h1>
+        <input type="text" id="new-fart" placeholder="What needs to be done?" />
+      </header>
+
+      <section id="main">
+        <ul id="fart-list">
+          <li class="completed">
+            <input type="checkbox" class="toggle">
+            <label>Connect to flickr!</label><button class="destroy"></button>
+          </li>
+          <li>
+            <input type="checkbox" class="toggle">
+            <label>...</label><button class="destroy"></button>
+          </li>
+          <li>
+            <input type="checkbox" class="toggle">
+            <label>Profit!</label><button class="destroy"></button>
+          </li>
+        </ul>
+
+        <input type="checkbox" id="toggle-all">
+      </section>
+
+      <footer id="footer">
+        <span id="fart-count">
+          <strong>2</strong> Total Photos
+        </span>
+        <ul id="filters">
+          <li>
+            <a href="all" class="selected">All</a>
+          </li>
+          <li>
+            <a href="set1">Set1</a>
+          </li>
+          <li>
+            <a href="set1">Set1</a>
+          </li>
+        </ul>
+
+        <button id="del-selected">
+          Delete Selected (1)
+        </button>
+      </footer>
+    </section>
+
+    <footer id="info">
+      <p>Double-click to edit a fart</p>
+    </footer>
+  </body>
+</html>
