@@ -8,6 +8,7 @@ import patterns.AbstractDuckFactory;
 import patterns.Flock;
 
 import other.Goose;
+import other.Quackologist;
 
 public class DuckSimulator {
 	public static void main (String[] args){
@@ -45,6 +46,11 @@ public class DuckSimulator {
 		flockOfMallards.add(mallardFour);
 
 		flockOfDucks.add(flockOfMallards);
+
+		System.out.println("\nDuck Simulator : Quackologist added");
+
+		Quackologist qck = new Quackologist();
+		flockOfDucks.registerObserver(qck);
 
 		System.out.println("\nDuck Simulator : Whole Flock");
 		simulate(flockOfDucks);
