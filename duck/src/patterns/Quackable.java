@@ -1,4 +1,4 @@
-package ducks;
+package patterns;
 
 public interface Quackable {
 	public void quack();
