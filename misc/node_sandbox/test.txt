@@ -1,9 +1,0 @@
-helloworld.js
-index.js
-letter.txt
-princess.js
-program.js
-report.txt
-router.js
-server.js
-test.txt
