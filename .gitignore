@@ -1,6 +1,6 @@
 *.pyc
 *.bin/
 .DS_Store*
-nodeschool/*
+*node_modules/*
 *.class
 *.jar
