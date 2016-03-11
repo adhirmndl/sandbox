@@ -177,8 +177,20 @@ class LList():
         currA.nxt = listB.head
 
     #9
-    def frontBackSplit():
-        return
+    def frontBackSplit(self):
+        back = LList()
+        if not (self.head is None or self.head.nxt is None):
+            slow = self.head
+            fast = self.head.nxt
+            while fast:
+                fast = fast.nxt
+                if fast:
+                    slow = slow.nxt
+                    fast = fast.nxt
+            back.head = slow.nxt
+            slow.nxt  = None
+        print self
+        print back
 
 def createSortedList():
     dummyList = LList()
@@ -281,6 +293,13 @@ def test_append():
     llist.append(listB)
     print llist
 
+def test_frontBackSplit():
+    #llist = createRandomList()
+    llist = LList()
+    llist.insert(3)
+    print llist
+    llist.frontBackSplit()
+
 if __name__ == '__main__':
     #test_simple()
     #test_loopy()
@@ -290,4 +309,5 @@ if __name__ == '__main__':
     #test_insertAtNth()
     #test_sortedInsert()
     #test_insertSort()
-    test_append()
+    #test_append()
+    test_frontBackSplit()
