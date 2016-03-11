@@ -231,6 +231,8 @@ class LList():
 
     #13
     def shuffleMerge(self, source):
+        temp = LList()
+
         return
 
 def createSortedList():
