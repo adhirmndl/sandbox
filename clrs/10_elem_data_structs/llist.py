@@ -25,6 +25,9 @@ class LList():
         self.head = self.head.nxt
         return self
 
+    def isEmpty(self):
+        return self.head == None
+
     def __str__(self):
         if self.head is None:
             return '[]'
@@ -205,6 +208,31 @@ class LList():
             else:
                 current = current.nxt
 
+    #11
+    def moveNode(self, source):
+        val = None
+        if not source.isEmpty():
+            val = source.pop()
+        if val is not None:
+            self.insert(val)
+
+    #12
+    def alternatingSplit(self):
+        tempList = LList()
+        tempList.head = self.head
+        oddList  = LList()
+        evenList = LList()
+        while not tempList.isEmpty():
+            evenList.moveNode(tempList)
+            if not tempList.isEmpty():
+                oddList.moveNode(tempList)
+        print oddList
+        print evenList
+
+    #13
+    def shuffleMerge(self, source):
+        return
+
 def createSortedList():
     dummyList = LList()
     dummyList.insert(50)
@@ -285,19 +313,22 @@ def test_removeDuplicates():
     llist.removeDuplicates()
     print llist
 
+def test_moveNode():
+    llist = LList()
+    source = createSortedList()
+    print llist
+    print source
+    source.moveNode(llist)
+    print llist
+    print source
+
 def createRandomList():
     llist = LList()
     llist.insert(43)
     llist.insert(2)
-    llist.insert(2)
-    llist.insert(2)
-    llist.insert(2)
-    llist.insert(32)
-    llist.insert(32)
     llist.insert(32)
     llist.insert(32)
     llist.insert(25)
-    llist.insert(20)
     llist.insert(20)
     llist.insert(21)
     llist.insert(95)
@@ -327,6 +358,19 @@ def test_frontBackSplit():
     print llist
     llist.frontBackSplit()
 
+def test_alternatingSplit():
+    llist = createSortedList()
+    print llist
+    llist.alternatingSplit()
+
+def test_shuffleMerge():
+    llist = createSortedList()
+    source = createRandomList()
+    print llist
+    print source
+    llist.shuffleMerge(source)
+    print llist
+
 if __name__ == '__main__':
     #test_simple()
     #test_loopy()
@@ -338,4 +382,7 @@ if __name__ == '__main__':
     #test_insertSort()
     #test_append()
     #test_frontBackSplit()
-    test_removeDuplicates()
+    #test_removeDuplicates()
+    #test_moveNode()
+    #test_alternatingSplit()
+    test_shuffleMerge()
