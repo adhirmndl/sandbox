@@ -192,6 +192,19 @@ class LList():
         print self
         print back
 
+    #10
+    def removeDuplicates(self):
+        if self.head is None:
+            return
+        self.insertSort()
+        print self
+        current = self.head
+        while current.nxt:
+            if current.value == current.nxt.value:
+                current.nxt = current.nxt.nxt
+            else:
+                current = current.nxt
+
 def createSortedList():
     dummyList = LList()
     dummyList.insert(50)
@@ -267,14 +280,28 @@ def test_sortedInsert():
     llist.sortedInsert(15)
     print llist
 
+def test_removeDuplicates():
+    llist = createRandomList()
+    llist.removeDuplicates()
+    print llist
+
 def createRandomList():
     llist = LList()
     llist.insert(43)
     llist.insert(2)
+    llist.insert(2)
+    llist.insert(2)
+    llist.insert(2)
+    llist.insert(32)
+    llist.insert(32)
+    llist.insert(32)
     llist.insert(32)
     llist.insert(25)
     llist.insert(20)
+    llist.insert(20)
     llist.insert(21)
+    llist.insert(95)
+    llist.insert(95)
     llist.insert(95)
     return llist
 
@@ -310,4 +337,5 @@ if __name__ == '__main__':
     #test_sortedInsert()
     #test_insertSort()
     #test_append()
-    test_frontBackSplit()
+    #test_frontBackSplit()
+    test_removeDuplicates()
