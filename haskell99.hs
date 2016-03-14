@@ -60,10 +60,20 @@ flatten (List (x:xs)) = flatten x ++ flatten (List xs)
 flatten (List []) = []
 
 -- problem 8 : eliminate consecutive duplicates
-compress list = compress_acc list []
+compress list = com_acc list []
     where
-        compress_acc []     acc = acc
-        compress_acc [x]    acc = (acc ++ [x])
-        cmopress_acc (x:xs) acc
-            | x == (head xs)    = compress_acc xs acc
-            | otherwise         = compress_acc xs (acc ++ [x])
+        com_acc [] acc = acc
+        com_acc [x] acc = (acc ++ [x])
+        com_acc (x:xs) acc
+            | x == (head xs) = com_acc xs acc
+            | otherwise      = com_acc xs (acc ++ [x])
+
+-- problem 9 : pack consecutive duplicates
+pack [] = []
+pack [x] = [[x]]
+pack (x:xs) = if elem x (head (pack xs))
+            then (x:head (pack xs)):(tail (pack xs))
+            else [x]:(pack xs)
+
+-- problem 10 : run length encoding
+encode xs = map (\x -> (length x, head x)) (pack xs)
