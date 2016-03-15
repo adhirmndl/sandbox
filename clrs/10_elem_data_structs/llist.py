@@ -64,28 +64,6 @@ class LList():
             x = x.nxt
         return True
 
-    def reverseRec(self):
-        self = self.rev_helper(LList(), self)
-        return str(self)
-
-    def reverse(self):
-        nxtNode  = None
-        current  = self.head
-        prevNode = None
-        while(current):
-            nxtNode = current.nxt
-            current.nxt = prevNode
-            prevNode = current
-            current = nxtNode
-        self.head = prevNode
-        return self
-
-    def rev_helper(self, acc, llist):
-        if llist is None:
-            return acc
-        else:
-            return self.rev_helper(acc.insert(llist.top()), llist.chop_top())
-
     def has_loop(self):
         first  = self.head
         second = self.head.nxt
@@ -232,8 +210,57 @@ class LList():
     #13
     def shuffleMerge(self, source):
         temp = LList()
+        src  = source.head
+        dest = self.head
+        while src and dest:
+            temp.insert(dest.value)
+            temp.insert(src.value)
+            dest = dest.nxt
+            src  = src.nxt
+        while src:
+            temp.insert(src.value)
+            src = src.nxt
+        while dest:
+            temp.insert(dest.value)
+            dest = dest.nxt
+        self.head = temp.head
+        self.reverse()
 
+    #14
+    def sortedMerge(self, source):
+        temp = LList()
+
+    #15
+    def mergeSort(self):
         return
+
+    #16
+    def sortedIntersect(self):
+        return
+
+    #17
+    def reverse(self):
+        nxtNode  = None
+        current  = self.head
+        prevNode = None
+        while(current):
+            nxtNode = current.nxt
+            current.nxt = prevNode
+            prevNode = current
+            current = nxtNode
+        self.head = prevNode
+        return self
+
+    #18
+    def reverseRec(self):
+        self = self.rev_helper(LList(), self)
+        return str(self)
+
+    def rev_helper(self, acc, llist):
+        if llist is None:
+            return acc
+        else:
+            return self.rev_helper(acc.insert(llist.top()), llist.chop_top())
 
 def createSortedList():
     dummyList = LList()
@@ -366,8 +393,8 @@ def test_alternatingSplit():
     llist.alternatingSplit()
 
 def test_shuffleMerge():
-    llist = createSortedList()
-    source = createRandomList()
+    source = createSortedList()
+    llist  = createRandomList()
     print llist
     print source
     llist.shuffleMerge(source)
