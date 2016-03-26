@@ -17,7 +17,7 @@ class Solution:
     	for i in intervals:
     		if self.isOverlap(i, new_interval):
     			o_intervals.append(i)
-    	m_interval = self.merge(o_intervals, new_interval)
+    	m_interval = self.mergeIntervals(o_intervals, new_interval)
 
     	if len(o_intervals) == 0:
     		pos = 0
@@ -40,7 +40,7 @@ class Solution:
     def isOverlap(self, i1, i2):
     	return not (max(i1.start, i2.start) > min(i1.end, i2.end))
 
-    def merge(self, overlaps, new):
+    def mergeIntervals(self, overlaps, new):
     	for interval in overlaps:
     		new.start = min(interval.start, new.start)
     		new.end   = max(interval.end, new.end)
@@ -53,7 +53,14 @@ class Solution:
     			i.start = i.end
     			i.end = tmp
 
+    def merge(self, intervals):
+    	res = []
+    	for i in intervals:
+    		res = self.insert(res, i)
+    	return res
+
 s = Solution()
-res = s.insert([Interval(1,2), Interval(3,5), Interval(6,7), Interval(8,10), Interval(16,12)], Interval(4,9))
+# res = s.insert([Interval(1,2), Interval(3,5), Interval(6,7), Interval(8,10), Interval(16,12)], Interval(4,9))
 # res = s.insert([Interval(1,2), Interval(3,6)], Interval(8,10))
+res = s.merge([Interval(1,3), Interval(2,6), Interval(8,10), Interval(15,18)])
 print res
