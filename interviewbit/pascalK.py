@@ -17,6 +17,9 @@ class Solution:
     		k+=1
     	return rows
 
-if __name__=="__main__":
-	s = Solution()
-	print s.generate(5)
+    def getRow(self, n):
+        return self.generate(n)[-1]
+
+s = Solution()
+print s.generate(5)
+print s.getRow(5)
