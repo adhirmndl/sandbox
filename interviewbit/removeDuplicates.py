@@ -9,57 +9,48 @@ class ListNode:
     	return str(self.val) + ', ' + str(self.next)
 
 class Solution:
+    def __init__(self):
+        self.tail = None
+        self.head = None
     # @param A : head node of linked list
     # @return the head node in the linked list
-
-    def __init__(self):
-    	self.head = None
     def deleteDuplicates(self, A):
-    	self.head = A
-    	prev = None
-    	curr = A
-    	dups = []
-    	while curr:
-    		if prev and curr.val == prev.val:
-    			prev.next = curr.next
-    			if curr.val not in dups:
-    			    dups.append(curr.val)
-    		else:
-    			prev = curr
-    		curr = curr.next
-    	curr = self.head
-    	while curr:
-    		if curr.val in dups:
-    			self.delete(curr.val)
-    		curr = curr.next
-    	return self.head
+        dups = []
+        curr = A
+        prev = None
+        while curr:
+            if prev and prev.val == curr.val:
+                dups.append(curr.val)
+            prev = curr
+            curr = curr.next
+        dups = list(set(dups))
+        curr = A
+        while curr:
+            if curr.val not in dups:
+                self.insertAtEnd(curr.val)
+            elif dups[0] < curr.val:
+                dups = dups[1:]
+            curr = curr.next
 
-    def delete(self, val):
-    	prev = None
-    	curr = self.head
-    	found = False
-    	while curr and found is False:
-    		if curr.val == val:
-    			found = True
-    		else:
-    			prev = curr
-    			curr = curr.next
-    	if prev is None:
-    		self.head = curr.next
-    	else:
-    		prev.next = curr.next
-    	print 'a', self.head
+        return self.head
+
+    def insertAtEnd(self, val):
+        if self.tail is None:
+            self.tail = ListNode(val)
+            self.head = self.tail
+        else:
+            self.tail.next = ListNode(val)
+            self.tail = self.tail.next
 
 def build123():
-	head = ListNode(1)
-	head.next = ListNode(1)
-	head.next.next = ListNode(2)
-	head.next.next.next = ListNode(2)
-	head.next.next.next.next = ListNode(3)
-	return head
-
+    head = ListNode(1)
+    head.next = ListNode(1)
+    head.next.next = ListNode(2)
+    head.next.next.next = ListNode(3)
+    head.next.next.next.next = ListNode(3)
+    head.next.next.next.next.next = ListNode(4)
+    return head
 s = Solution()
 testL = build123()
 print testL
 print s.deleteDuplicates(testL)
-print testL
