@@ -1,11 +1,15 @@
+import random
 class Solution:
-    # @param A : tuple of integers
-    # @return an integer
     def maxSubArray(self, A):
-        if len(A) == 0:
-            return
         maxSum = currSum = A[0]
-        for i in A[1:]:
-            currSum = max(i, currSum + i)
+        for num in A[1:]:
+            currSum = max(num, currSum + num)
             maxSum  = max(currSum, maxSum)
         return maxSum
+
+s = Solution()
+for i in range(10):
+    arr = [random.randint(-10,10) for i in xrange(10)]
+    print arr
+    print s.maxSubArray(arr)
+print s.maxSubArray([-3, -10, 3, 4, 1, -8, 6, -9, 8, -5])
