@@ -3,15 +3,8 @@ class Solution:
 	# @param B : string
 	# @return an integer
 	def compareVersion(self, A, B):
-		if len(A) == 0:
-			splitA = [0]
-		else:
-			splitA = [int(x) for x in A.split('.')]
-		
-		if len(B) == 0:
-			splitB = [0]
-		else:
-			splitB = [int(x) for x in B.split('.')]
+		splitA = len(A) and [int(x) for x in A.split('.')] or [0]
+		splitB = len(B) and [int(x) for x in B.split('.')] or [0]
 
 		i = 0
 		while i < len(splitA) and i < len(splitB):
