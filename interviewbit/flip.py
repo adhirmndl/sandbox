@@ -22,6 +22,8 @@ class Solution:
         return pair
 
 s = Solution()
+print s.flip('110')
+print s.flip('001')
 print s.flip('010')
 print s.flip('1101010001')
 
