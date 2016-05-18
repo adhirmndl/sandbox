@@ -1,3 +1,5 @@
+import operator
+
 class BinaryTree:
 	def __init__(self, root):
 		self.key   = root
@@ -29,6 +31,58 @@ class BinaryTree:
 	def getRootVal(self):
 		return self.key
 
-	def setRootVal(key):
+	def setRootVal(self, key):
 		self.key = key
 
+	def __str__(self):
+		return str(self.key) + ' [ ' + str(self.getLeftChild()) + ' ' + str(self.getRightChild()) + ' ]'
+
+def buildParseTree(fpexp):
+	fplist = fpexp.split()
+	pStack = []
+	root   = BinaryTree('')
+	pStack.append(root)
+	curr   = root
+
+	for i in fplist:
+		if i == '(':
+			curr.insertLeft('')
+			pStack.append(curr)
+			curr = curr.getLeftChild()
+		elif i not in ['+', '-', '*', '/', ')']:
+			curr.setRootVal(int(i))
+			curr = pStack.pop()
+		elif i in ['+' , '-', '*', '/']:
+			curr.setRootVal(i)
+			curr.insertRight('')
+			pStack.append(curr)
+			curr = curr.getRightChild()
+		elif i == ')':
+			curr = pStack.pop()
+		else:
+			raise ValueError
+	return root
+
+def preorder(tree):
+	if tree:
+		print(tree.getRootVal())
+		preorder(tree.getLeftChild())
+		preorder(tree.getRightChild())
+
+def evaluate(ptree):
+	oper = { '+' : operator.add
+				 , '-' : operator.sub
+				 , '*' : operator.mul
+				 , '/' : operator.truediv
+				 }
+	left  = ptree.getLeftChild()
+	right = ptree.getRightChild()
+	if left and right:
+		fn = oper[ptree.getRootVal()]
+		return fn(evaluate(left), evaluate(right))
+	else:
+		return ptree.getRootVal()
+
+pt = buildParseTree("( ( 10 + 5 ) * 3 )")
+print pt
+print evaluate(pt)
