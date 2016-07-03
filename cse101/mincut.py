@@ -40,7 +40,7 @@ def merge(graph, u, v):
 	uedges = [x for x in graph[u] if x != v]
 	for vertex in uedges:
 		graph[vertex] = [v if x == u else x for x in graph[vertex]]
-	graph[v] = [x for x in graph[v] if x != u]
+	graph[v] = [x for x in graph[v] if x != u] #removes self-loops
 	graph[v] += uedges
 	del graph[u]
 
