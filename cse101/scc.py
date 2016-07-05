@@ -40,7 +40,7 @@ import unittest
 import resource, sys
 
 '''
-this is to allow dfs_recursive to execute
+this is to allow dfs_recursive enough stacks/memory to execute
 '''
 resource.setrlimit(resource.RLIMIT_STACK,(67104768, 67104768))
 sys.setrecursionlimit(10**6)
@@ -207,15 +207,15 @@ class GraphTester(unittest.TestCase):
 
 	def testdfsloop_rec_input(self):
 		n = 875714
-		graph = file2graph("scc_input.txt", n, False)
-		leaders = dfsloop_rec(graph, n)
-		self.assertEquals(leaders, [615205, 1157, 462, 224, 217])
-
-	def testdfsloop_rec_input_rev(self):
-		n = 875714
 		graph = file2graph("scc_input.txt", n)
 		leaders = dfsloop_rec(graph, n)
 		self.assertEquals(leaders, [600516, 318, 288, 191, 178])
+
+	def testdfsloop_rec_input_rev(self):
+		n = 875714
+		graph = file2graph("scc_input.txt", n, False)
+		leaders = dfsloop_rec(graph, n)
+		self.assertEquals(leaders, [615205, 1157, 462, 224, 217])
 
 	def testdfsloop_rec1(self):
 		n = 9
