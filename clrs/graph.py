@@ -15,4 +15,16 @@ def bfs(graph, source):
 			queue.extend(graph[curr] - set(visited))
 	return visited
 
-print bfs(graph, 1)
+def dfs(graph, source):
+	visited, stack = [], [source]
+	while stack:
+		print stack
+		curr = stack.pop()
+		if curr not in visited:
+			visited.append(curr)
+			stack.extend(graph[curr] - set(visited))
+	return visited
+
+
+# print bfs(graph, 1)
+print dfs(graph, 1)
