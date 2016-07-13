@@ -50,7 +50,7 @@ B[s] = empty path  [computed shortest path]
 
 main loop:
 while X != V:
-	among all edges (v, w) E with v E x, w E x
+	among all edges (v, w) E with v E x, w !E x
 	pick the one that minimizes (Dijkstra's greedy criterion)
 	A[v] + lvw  --> [v*, w*]
 	add w* to X
@@ -59,6 +59,17 @@ while X != V:
 '''
 
 import unittest
+
+def dijkstra(graph, s):
+	X = [s]
+	A[s] = 0
+	B[s] = []
+
+	# while X != graph.keys():
+	# 	v, w, e = 0
+	# 	for vertex in X:
+	# 		for (w, e) in graph[vertex]:
+	pass
 
 def file2graph(filename):
 	f = open(filename)
