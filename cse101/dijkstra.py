@@ -40,3 +40,52 @@ Note this requires a heap that supports deletions,
 and you'll probably need to maintain some kind of mapping
 between vertices and their positions in the heap.
 '''
+
+'''
+algo
+initialize:
+x = {s}            [vertices processed so far]
+A[s] = 0           [computed shortest path distances]
+B[s] = empty path  [computed shortest path]
+
+main loop:
+while X != V:
+	among all edges (v, w) E with v E x, w E x
+	pick the one that minimizes (Dijkstra's greedy criterion)
+	A[v] + lvw  --> [v*, w*]
+	add w* to X
+	A[w*] = A[v*] + lv*w*
+	B[w*] = B[v*]U(v*,w*)
+'''
+
+import unittest
+
+def file2graph(filename):
+	f = open(filename)
+	graph = {}
+	for l in f.readlines():
+		line = l.split()
+		key = int(line[0])
+		g = {}
+		for kv in line[1:]:
+			(k,v) = kv.split(',')
+			g[int(k)] = int(v)
+		graph[key] = g
+	return graph
+
+class GraphTester(unittest.TestCase):
+	def testFile2Graph(self):
+		graph = file2graph('dijkstra_input1.txt')
+		self.assertIsNotNone(graph)
+		expected = { 1: {8: 2, 2: 1}
+							 , 2: {1: 1, 3: 1}
+							 , 3: {2: 1, 4: 1}
+							 , 4: {3: 1, 5: 1}
+							 , 5: {4: 1, 6: 1}
+							 , 6: {5: 1, 7: 1}
+							 , 7: {8: 1, 6: 1}
+							 , 8: {1: 2, 7: 1}}
+		self.assertEquals(graph, expected)
+
+if __name__=='__main__':
+	unittest.main()
