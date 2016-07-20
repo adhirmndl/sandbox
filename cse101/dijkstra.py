@@ -59,17 +59,33 @@ while X != V:
 '''
 
 import unittest
+import sys
+import bisect
 
 def dijkstra(graph, s):
+	n = len(graph.keys())
 	X = [s]
-	A[s] = 0
-	B[s] = []
+	A = [0]*(n + 1)
+	B = [[] for x in (range(n + 1))]
+	vertices = sorted(graph.keys())
 
-	# while X != graph.keys():
-	# 	v, w, e = 0
-	# 	for vertex in X:
-	# 		for (w, e) in graph[vertex]:
-	pass
+	while X != vertices:
+		mingreed = sys.maxint
+		wsel     = 0
+		vsel     = 0
+		for vertex in X:
+			for (w, e) in graph[vertex].iteritems():
+				if w not in X:
+					greed = A[vertex] + e
+					if mingreed > greed:
+						mingreed = greed
+						wsel = w
+						vsel = vertex
+		bisect.insort(X, wsel)
+		A[wsel] = A[vsel] + graph[vsel][wsel]
+		B[wsel] = B[vsel] + [wsel]
+	return A[1:]
+
 
 def file2graph(filename):
 	f = open(filename)
@@ -84,7 +100,7 @@ def file2graph(filename):
 		graph[key] = g
 	return graph
 
-class GraphTester(unittest.TestCase):
+class DijkstraTester(unittest.TestCase):
 	def testFile2Graph(self):
 		graph = file2graph('dijkstra_input1.txt')
 		self.assertIsNotNone(graph)
@@ -97,6 +113,27 @@ class GraphTester(unittest.TestCase):
 							 , 7: {8: 1, 6: 1}
 							 , 8: {1: 2, 7: 1}}
 		self.assertEquals(graph, expected)
+
+	def testDijkstra1(self):
+		graph = file2graph('dijkstra_input1.txt')
+		result = dijkstra(graph, 1)
+		expected = [0, 1, 2, 3, 4, 4, 3, 2]
+		self.assertEquals(result, expected)
+
+	def testDijkstra2(self):
+		graph = file2graph('dijkstra_input2.txt')
+		result = dijkstra(graph, 1)
+		expected = [0, 1, 3, 6]
+		self.assertEquals(result, expected)
+
+	def testDijkstraInput(self):
+		required = [7,37,59,82,99,115,133,165,188,197]
+		graph = file2graph('dijkstra_input.txt')
+		result = dijkstra(graph, 1)
+		answer = [result[i-1] for i in required]
+		expected = [2599,2610,2947,2052,2367,2399,2029,2442,2505,3068]
+		self.assertEquals(answer, expected)
+
 
 if __name__=='__main__':
 	unittest.main()
