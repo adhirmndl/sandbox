@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd" version="2.0">
+   <Ad id="2997596580601">
+      <InLine>
+         <AdSystem>Amazon</AdSystem>
+         <AdTitle><![CDATA[1x1_AAP-Video_Verizon - US_Verizon - US Front Row June Concert_BOB_15_VOD PUSH_OffApp_15s]]></AdTitle>
+         <Error><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoError%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=6,214,088,377,815,306,996]]></Error>
+         <Impression><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoImpression%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=7,106,710,831,383,525,448]]></Impression>
+         <Impression><![CDATA[https://ad.doubleclick.net/ddm/trackimpi/N2998.148818.AMAZON.COMAMAZONMED/B10000646.134396790;dc_trk_aid=307058025;dc_trk_cid=72222173;ord=8,171,869,814,781,534,045;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?]]></Impression>
+         <Impression><![CDATA[https://pixel.adsafeprotected.com/rfw/st/60127/9489796/skeleton.gif]]></Impression>
+         <Creatives>
+            <Creative sequence="1" id="2993060720301">
+               <Linear>
+                  <Duration>00:00:15</Duration>
+                  <TrackingEvents>
+                     <Tracking event="start"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoStart%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=473,694,096,827,476,986]]></Tracking>
+                     <Tracking event="firstQuartile"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoFirstQuartile%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=6,996,990,264,275,503,608]]></Tracking>
+                     <Tracking event="midpoint"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoMidpoint%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=6,384,803,900,854,729,410]]></Tracking>
+                     <Tracking event="thirdQuartile"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoThirdQuartile%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=2,127,377,448,474,731,619]]></Tracking>
+                     <Tracking event="complete"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoComplete%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=5,309,213,433,793,796,187]]></Tracking>
+                     <Tracking event="mute"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoMute%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=1,863,601,496,682,705,352]]></Tracking>
+                     <Tracking event="unmute"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoUnmute%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=8,898,499,642,742,028,399]]></Tracking>
+                     <Tracking event="pause"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoPause%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=2,478,068,735,662,291,548]]></Tracking>
+                     <Tracking event="resume"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoResume%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=2,902,397,461,414,206,888]]></Tracking>
+                     <Tracking event="rewind"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoSkipBackward%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=4,229,132,037,413,310,539]]></Tracking>
+                     <Tracking event="acceptInvitation"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoCreativeView%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=7,162,247,495,815,195,514]]></Tracking>
+                     <Tracking event="close"><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoClose%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=840,696,418,651,192,131]]></Tracking>
+                  </TrackingEvents>
+                  <VideoClicks>
+                     <ClickTracking><![CDATA[https://s.amazon-adsystem.com/iui3?d=forester-did&ex-fargs=%3Fi%3D1c00f1dc-fb9c-4f27-ba9d-e158e2a906e7%26e%3DvideoClick%26a%3D2997596580601%26c%3D2993060720301%26s%3Dpda&ex-fch=416719&cb=5,370,840,289,396,646,724]]></ClickTracking>
+                  </VideoClicks>
+                  <MediaFiles>
+                     <MediaFile height="360" width="640" bitrate="642" type="application/x-shockwave-flash" apiFramework="VPAID"><![CDATA[https://ddddemkrpfu23.cloudfront.net/vpaid-1.swf]]></MediaFile>
+                  </MediaFiles>
+                  <AdParameters><![CDATA[<videoUrl>https://d2zv5c24qn8fnp.cloudfront.net/664509ed385cd75906120338000a5929.flv</videoUrl><clickUrl>https://ad.doubleclick.net/ddm/trackclk/N2998.148818.AMAZON.COMAMAZONMED/B10000646.134396790;dc_trk_aid=307058025;dc_trk_cid=72222173;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=</clickUrl><adDuration>15</adDuration><adPrefUrl>https://www.amazon.com/gp/dra/info/</adPrefUrl><showAdNotice>0</showAdNotice><expandableAdChoices>1</expandableAdChoices><!--]]></AdParameters>
+               </Linear>
+            </Creative>
+         </Creatives>
+      </InLine>
+   </Ad>
+</VAST>
+
+<!-- produce.ops.corp.gq1.yahoo.com Thu Aug  4 09:45:58 PDT 2016 -->
