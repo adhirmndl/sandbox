@@ -114,7 +114,7 @@ class TwoSumTester(unittest.TestCase):
 		arr = [2,8]
 		self.assertEquals(1, twosum_hash(arr, 10, 11))
 
-	def testCaseHash2(self):
+	def testCaseHash2(self): 
 		arr = [2,3,8]
 		self.assertEquals(2, twosum_hash(arr, 10, 11))
 
