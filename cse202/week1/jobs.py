@@ -3,21 +3,19 @@ import unittest
 
 class GreedyScheduler:
 	def schedule(self, joblist, func):
-		# (w, l)
 		joblist.sort(key = func, reverse = True)
-		sumlength  = 0
-		cumulative = 0
+		elapsedlength = 0
+		weightedsum   = 0
 		for job in joblist:
-			cumulative += (job[1] + sumlength) * job[0]
-			sumlength  += job[1]
-			print job, job[1] - job[0], sumlength, cumulative
-		return cumulative
+			# print 'job', job, 'diff', job[0] - job[1], 'div', job[0] / job[1]
+			weightedsum   += (job[1] + elapsedlength) * job[0]
+			elapsedlength += job[1]
+		return weightedsum
 
 	def diff(self, job):
 		return (job[0] - job[1], job[0])
 
 	def div(self, job):
-		print job, job[0]/ job[1]
 		return (job[0] / job[1], job[0])
 
 class GreedyScheduleTester(unittest.TestCase):
@@ -34,50 +32,50 @@ class GreedyScheduleTester(unittest.TestCase):
 	def testInputDiv(self):
 		data = file2list('jobs_input.txt')
 		gs = GreedyScheduler()
-		weight = gs.schedule(data, lambda job : job[0] / job[1])
-		self.assertEquals(weight, 188207745339)
+		weight = gs.schedule(data, gs.div)
+		self.assertEquals(weight, 67311454237)
 
 	def testDiff6(self):
 		data = file2list('jobs_6.txt')
 		gs = GreedyScheduler()
 		weight = gs.schedule(data, gs.diff)
-		self.assertEquals(weight, 61545)
+		self.assertEquals(weight, 31814)
 
 	def testDiv6(self):
 		data = file2list('jobs_6.txt')
 		gs = GreedyScheduler()
 		weight = gs.schedule(data, gs.div)
-		self.assertEquals(weight, 60213)
+		self.assertEquals(weight, 31814)
 
 	def testDiff10(self):
 		data = file2list('jobs_10.txt')
 		gs = GreedyScheduler()
-		weight = gs.schedule(data, lambda job: job[0] - job[1])
-		self.assertEquals(weight, 688647)
+		weight = gs.schedule(data, gs.diff)
+		self.assertEquals(weight, 61545)
 
 	def testDiv10(self):
 		data = file2list('jobs_10.txt')
 		gs = GreedyScheduler()
-		weight = gs.schedule(data, lambda job : job[0] / job[1])
-		self.assertEquals(weight, 674634)
+		weight = gs.schedule(data, gs.div)
+		self.assertEquals(weight, 60213)
 
 	def testDiff32(self):
 		data = file2list('jobs_32.txt')
 		gs = GreedyScheduler()
-		weight = gs.schedule(data, lambda job: job[0] - job[1])
-		self.assertEquals(weight, 31814)
+		weight = gs.schedule(data, gs.diff)
+		self.assertEquals(weight, 688647)
 
 	def testDiv32(self):
 		data = file2list('jobs_32.txt')
 		gs = GreedyScheduler()
-		weight = gs.schedule(data, lambda job : job[0] / job[1])
-		self.assertEquals(weight, 31814)
+		weight = gs.schedule(data, gs.div)
+		self.assertEquals(weight, 674634)
 
 	def testInputDiff(self):
 		data = file2list('jobs_input.txt')
 		gs = GreedyScheduler()
-		weight = gs.schedule(data, lambda job: job[0] - job[1])
-		self.assertEquals(weight, 188636482260)
+		weight = gs.schedule(data, gs.diff)
+		self.assertEquals(weight, 69119377652)
 
 	def testfile2list(self):
 		tuple_list = file2list('jobs_input.txt')
